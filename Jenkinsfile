@@ -19,6 +19,6 @@ node('master') {
    }
    stage ('NexusArtifactUploader'){
 		 echo 'Upload artifacts in Nexus'
-		 nexusArtifactUploader credentialsId: 'Nexus', groupId: 'demodocker', nexusUrl: '10.207.16.229:8082/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'demodocker', version: 'v0.1'
+		 nexusArtifactUploader artifacts: [[artifactId: 'project', classifier: '', file: 'in28minutes-web-servlet-jsp/target/in28minutes.war', type: 'in28minutes.war']], credentialsId: 'Nexus', groupId: 'com.in28minutes', nexusUrl: '10.207.16.229:8082/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'demodocker', version: '1.0-SNAPSHOT'
    }
 }
